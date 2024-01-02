@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Embed Flow</title>
+	<script src="https://wolf2-dev-ed.my.salesforce.com/lightning/lightning.out.js">
+</script>
+</head>
+<body>
+<script>
+	$Lightning.use("c:mytemp",
+		function(){
+			$Lightning.createComponent(
+				"c:TestLightningOut",
+				{},
+				"lightningLocator",
+				function(cmp){
+					console.log('Hi');
+				});
+		},"https://wolf2-dev-ed.lightning.force.com",
+		"00D5g000004Sqro!AQkAQBtGMbBaLpHgurqIyuBDCMoNM8GwCX.vKrbtkdKJNa5SegNUpnjP4323sErANXcBz5KDHDwyR70YFZ_Q3dRklcxVXj9E"
+		);
+</script>
+</body>
+</html>
