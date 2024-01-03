@@ -8,13 +8,14 @@
 </script>
 </head>
 <body>
+	<div id="lightningLocator"></div>
 <script>
 	$Lightning.use("c:mytemp",
 		function(){
 			$Lightning.createComponent(
 				"c:TestLightningOut",
 				{},
-				"lightningContainer",
+				"lightningLocator",
 				function(cmp){
 					console.log('Hi');
 				});
