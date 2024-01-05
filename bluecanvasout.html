@@ -13,8 +13,7 @@
             function() {                  // Callback once framework and app loaded
                 $Lightning.createComponent(
                     "c:ECFlowRenderer", // top-level compo}nent of your app
-                    {},
-                    //{flowName:"Case_Sample_Flow",recordId:"5002G00001CpUnQQAV"},                  // attributes to set on the component when created
+                    {flowName:"Case_Sample_Flow",recordId:"5002G00001CpUnQQAV"},                  // attributes to set on the component when created
                     "lightningLocator",   // the DO
 function(cmp) {
                         console.log('Hi from callback');// callback when component is created and active on the page
