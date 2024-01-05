@@ -1,27 +1,28 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Embed Flow</title>
-	<script src="https://wolf2-dev-ed.lightning.force.com/lightning/lightning.out.js">
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Flow</title>
+    <script src="https://ec-ord1-dev-ed.lightning.force.com/lightning/lightning.out.js"></script>
 </head>
 <body>
-	<div id="lightningLocator"></div>
-<script>
-	$Lightning.use("c:mytemp",
-		function(){
-			$Lightning.createComponent(
-				"c:TestLightningOut",
-				{},
-				"lightningLocator",
-				function(cmp){
-					console.log('Hi');
-				});
-		},"https://wolf2-dev-ed.lightning.force.com",
-		"00D5g000004Sqro!AQkAQG1lqu0WwETyKs3rJFTGTJ3xwiJhM1DMBuUcgmtH7n5nv763r1iKVilvJ7tmrsII01Ppm6jzRZUcmi9Sn.vEgk4l1UGe"
-		);
-</script>
+    <div id="lightningLocator"></div>
+    <script>
+        var accToken = '00DA0000000cDUJ!AQcAQChxvTDEWMT1d2XQcGVUo0aJodpJx9uDvqwD_2pONhvbgzZ_I4p6MZZMJhAB8sDFSFd5mxxTET25qTxQb.dRPHMYEZwr';
+	    $Lightning.use("c:ECFlowRendererApp",    // name of the Lightning app
+            function() {                  // Callback once framework and app loaded
+                $Lightning.createComponent(
+                    "c:ECFlowRenderer", // top-level compo}nent of your app
+                    {},
+                    //{flowName:"Case_Sample_Flow",recordId:"5002G00001CpUnQQAV"},                  // attributes to set on the component when created
+                    "lightningLocator",   // the DO
+function(cmp) {
+                        console.log('Hi from callback');// callback when component is created and active on the page
+                    }
+                );
+            }, "https://ec-ord1-dev-ed.lightning.force.com",  // Community endpoint
+            accToken
+        );
+    </script> 
 </body>
 </html>
