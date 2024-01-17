@@ -2,24 +2,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embedded Flow</title>
-    <script src="https://ec-ord1-dev-ed.lightning.force.com/lightning/lightning.out.js"></script>
+    <title>Embedded LWC</title>
+    <script src="https://wolf2-dev-ed1-dev-ed.develop.my.salesforce.com/lightning/lightning.out.js"></script>
 </head>
 <body>
     <div id="lightningLocator"></div>
     <script>
-        var accToken = '00DA0000000cDUJ!AQcAQChxvTDEWMT1d2XQcGVUo0aJodpJx9uDvqwD_2pONhvbgzZ_I4p6MZZMJhAB8sDFSFd5mxxTET25qTxQb.dRPHMYEZwr';
-	    $Lightning.use("c:ECFlowRendererApp",    // name of the Lightning app
+        var accToken = '00D5g000004Sqro!AQkAQN9kEEcchv_D9BfCSZlc9GTRy6Vj50OVBaagmtZgKj8qnBodC5HoIVvoXHCKaPvpmXr3Wkd23HM01d3i47hhZmD1Pg4F';
+	    $Lightning.use("c:publishKnowledgeBaseInExternalSite",    // name of the Lightning app
             function() {                  // Callback once framework and app loaded
                 $Lightning.createComponent(
-                    "c:ECFlowRenderer", // top-level compo}nent of your app
-                    {flowName:"Case_Sample_Flow",recordId:"5002G00001CpUnQQAV"},                  // attributes to set on the component when created
+                    "c:publishKnowledgeBaseInExternalSiteAura", // top-level compo}nent of your app
+                    {},                  // attributes to set on the component when created
                     "lightningLocator",   // the DO
 function(cmp) {
                         console.log('Hi from callback');// callback when component is created and active on the page
                     }
                 );
-            }, "https://ec-ord1-dev-ed.lightning.force.com",  // Community endpoint
+            }, "https://wolf2-dev-ed1-dev-ed.develop.lightning.force.com",  // Community endpoint
             accToken
         );
     </script> 
