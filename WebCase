@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web-to-Case Form</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+	<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+
+  <form id="webToCaseForm">
+  	<input type=hidden name="orgid" value="00D5g000004Sqro">
+<input type=hidden name="retURL" value="http:thankyou>
+    <!-- Your web-to-case form fields go here -->
+    <label for="name">Contact Name</label><input  id="name" maxlength="80" name="name" size="20" type="text" /><br>
+
+<label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+
+<label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+
+<label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" /><br>
+
+<label for="description">Description</label><textarea name="description"></textarea><br>
+
+<input type="hidden"  id="external" name="external" value="1" /><br>
+
+<input type="submit" name="submit">
+  </form>
+
+  <script>
+    $(document).ready(function() {
+      $('#webToCaseForm').submit(function(e) {
+        e.preventDefault();
+
+        // Make AJAX request to Salesforce
+        $.ajax({
+          url: 'https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D5g000004Sqro" method="POST"',
+          method: 'POST',
+          data: $(this).serialize(),
+          dataType: 'json', // Assuming the response is in JSON format
+          success: function(response) {
+            // Check if the response code is 200
+            if (response.statusCode === 200) {
+              // Case created successfully
+              alert('Case created successfully!');
+            } else {
+              // Display error message
+              alert('Error: ' + response.errorMessage);
+            }
+          },
+          error: function(xhr, status, error) {
+            // Display error message for AJAX request failure
+            alert('AJAX request failed: ' + status + ' - ' + error);
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
