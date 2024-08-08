@@ -8,20 +8,18 @@
 <body>
     <div id="lightningLocator"></div>
     <script>
-        var accToken = '00D5g000004Sqro!AQkAQNBmrxp9CMzmAjluyfweDbk5fJxjfvHOW51IyAdzALU_vSOtlbbYPJ2o2xlTtn3MvNiQEhlmre0LGcDPOKUcc5Ncj8yl';
-	    $Lightning.use("c:publishKnowledgeBaseInExternalSite",    // name of the Lightning app
-            function() {                  // Callback once framework and app loaded
-                $Lightning.createComponent(
-                    "c:publishKnowledgeBaseInExternalSiteAura", // top-level compo}nent of your app
-                    {},                  // attributes to set on the component when created
-                    "lightningLocator",   // the DO
-function(cmp) {
-                        console.log('Hi from callback');// callback when component is created and active on the page
-                    }
-                );
-            }, "https://wolf2-dev-ed1-dev-ed.develop.lightning.force.com",  // Community endpoint
-            accToken
-        );
+        $Lightning.use("c:WarrantyWebForm", function() {
+						$Lightning.createComponent("c:tNFWarrantyForm", {
+								"userValue": message
+							},
+							"lightning",
+							function(cmp) {
+								console.log("LWC webToCaseForm was created");
+							}
+						);
+					},
+					url
+				);
     </script> 
 </body>
 </html>
